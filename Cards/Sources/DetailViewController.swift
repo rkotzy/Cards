@@ -7,7 +7,7 @@
 
 import UIKit
 
-internal class DetailViewController: UIViewController {
+class DetailViewController: UIViewController {
     
     var blurView = UIVisualEffectView(effect: UIBlurEffect(style: .extraLight ))
     var detailView: UIView?
@@ -33,8 +33,8 @@ internal class DetailViewController: UIViewController {
         
         if #available(iOS 11.0, *) {
             scrollView.contentInsetAdjustmentBehavior = .never
-        } 
-
+        }
+        
         self.snap = UIScreen.main.snapshotView(afterScreenUpdates: true)
         self.view.addSubview(blurView)
         self.view.addSubview(scrollView)
@@ -63,12 +63,12 @@ internal class DetailViewController: UIViewController {
         
     }
     
-
+    
     override func viewWillAppear(_ animated: Bool) {
         scrollView.addSubview(card.backgroundIV)
         self.delegate?.cardWillShowDetailView?(card: self.card)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         
         originalFrame = scrollView.frame
@@ -86,7 +86,7 @@ internal class DetailViewController: UIViewController {
                                   y: card.backgroundIV.bounds.maxY,
                                   width: scrollView.frame.width,
                                   height: detail.frame.height)
-             
+            
             scrollView.contentSize = CGSize(width: scrollView.bounds.width, height: detail.frame.maxY)
             
             
@@ -95,8 +95,8 @@ internal class DetailViewController: UIViewController {
                                     width: 40,
                                     height: 40)
             
-           
-
+            
+            
         }
         
         self.delegate?.cardDidShowDetailView?(card: self.card)
@@ -127,7 +127,7 @@ internal class DetailViewController: UIViewController {
         }
         
         if isFullscreen {
-           
+            
             scrollView.frame = view.bounds
             scrollView.frame.origin.y = 0
             print(scrollView.frame)
@@ -142,9 +142,9 @@ internal class DetailViewController: UIViewController {
         
         card.backgroundIV.frame.origin = scrollView.bounds.origin
         card.backgroundIV.frame.size = CGSize( width: scrollView.bounds.width,
-                                            height: card.backgroundIV.bounds.height)
+                                               height: card.backgroundIV.bounds.height)
         card.layout(animating: isAnimating)
-    
+        
     }
     
     
@@ -238,13 +238,13 @@ class XButton: UIButton {
         
         xPath.move(to: CGPoint(x: rect.maxX - inset, y: inset))
         xPath.addLine(to: CGPoint(x: inset, y: rect.maxY - inset))
-    
+        
         xLayer.path = xPath.cgPath
         
         xLayer.strokeColor = UIColor.white.cgColor
         xLayer.lineWidth = 2.0
         self.layer.addSublayer(xLayer)
-    
+        
         circle.frame = rect
         circle.layer.cornerRadius = circle.bounds.width / 2
         circle.clipsToBounds = true

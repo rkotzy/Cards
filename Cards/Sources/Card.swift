@@ -125,7 +125,7 @@ import UIKit
     fileprivate var detailVC = DetailViewController()
     var superVC: UIViewController?
     var originalFrame = CGRect.zero
-    var backgroundIV = UIImageView()
+    public var backgroundIV = UIImageView()
     var insets = CGFloat()
     var isPresenting = false
     
@@ -147,7 +147,7 @@ import UIKit
         self.addGestureRecognizer(tap)
         tap.delegate = self
         tap.cancelsTouchesInView = false
-       
+        
         detailVC.transitioningDelegate = self
         
         // Adding Subviews
@@ -199,7 +199,7 @@ import UIKit
             resetAnimated()
         }
     }
-
+    
     
     //MARK: - Animations
     
@@ -232,7 +232,7 @@ import UIKit
 }
 
 
-    //MARK: - Transition Delegate
+//MARK: - Transition Delegate
 
 extension Card: UIViewControllerTransitioningDelegate {
     
@@ -246,7 +246,7 @@ extension Card: UIViewControllerTransitioningDelegate {
     
 }
 
-    //MARK: - Gesture Delegate
+//MARK: - Gesture Delegate
 
 extension Card: UIGestureRecognizerDelegate {
     
@@ -264,7 +264,7 @@ extension Card: UIGestureRecognizerDelegate {
 }
 
 
-	//MARK: - Helpers
+//MARK: - Helpers
 
 extension UILabel {
     
@@ -278,3 +278,4 @@ extension UILabel {
     }
     
 }
+

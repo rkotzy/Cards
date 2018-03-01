@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable open class CardHighlight: Card {
-
+    
     /**
      Text of the title label.
      */
@@ -77,11 +77,11 @@ import UIKit
     //Priv Vars
     private var iconIV = UIImageView()
     private var actionBtn = UIButton()
-    private var titleLbl = UILabel ()
+    public var titleLbl = UILabel()
     private var itemTitleLbl = UILabel()
     private var itemSubtitleLbl = UILabel()
     private var lightColor = UIColor(red: 239/255, green: 239/255, blue: 244/255, alpha: 1)
-    private var bgIconIV = UIImageView()
+    public var bgIconIV = UIImageView()
     
     fileprivate var btnWidth = CGFloat()
     
@@ -90,7 +90,7 @@ import UIKit
         super.init(frame: frame)
         initialize()
     }
-
+    
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initialize()
@@ -111,7 +111,7 @@ import UIKit
         else { bgIconIV.alpha = 0 }
     }
     
-  
+    
     override open func draw(_ rect: CGRect) {
         super.draw(rect)
         
@@ -140,7 +140,7 @@ import UIKit
         itemTitleLbl.minimumScaleFactor = 0.1
         itemTitleLbl.lineBreakMode = .byTruncatingTail
         itemTitleLbl.numberOfLines = 0
-
+        
         itemSubtitleLbl.textColor = textColor
         itemSubtitleLbl.text = itemSubtitle
         itemSubtitleLbl.font = UIFont.systemFont(ofSize: itemSubtitleSize)
@@ -202,7 +202,7 @@ import UIKit
                                  height: 32)
         actionBtn.layer.cornerRadius = actionBtn.layer.bounds.height/2
     }
-   
+    
     //Actions
     
     @objc  func buttonTapped(){
@@ -216,6 +216,5 @@ import UIKit
         delegate?.cardHighlightDidTapButton?(card: self, button: actionBtn)
     }
 }
-
 
 
