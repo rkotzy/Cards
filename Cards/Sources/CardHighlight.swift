@@ -147,7 +147,7 @@ import UIKit
         itemSubtitleLbl.adjustsFontSizeToFitWidth = true
         itemSubtitleLbl.minimumScaleFactor = 0.1
         itemSubtitleLbl.lineBreakMode = .byTruncatingTail
-        itemSubtitleLbl.numberOfLines = 2
+        itemSubtitleLbl.numberOfLines = 1
         itemSubtitleLbl.sizeToFit()
         
         actionBtn.backgroundColor = UIColor.clear
