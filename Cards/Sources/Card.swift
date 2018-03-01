@@ -103,7 +103,7 @@ import UIKit
             detailVC.card = self
             detailVC.delegate = self.delegate
             detailVC.isFullscreen = fullscreen
-            detailVC.canScrollDown = canScrollDown
+            detailVC.canScrollDown = canScrollDown ?? true
         }
     }
     /**
