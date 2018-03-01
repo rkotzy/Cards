@@ -95,7 +95,7 @@ import UIKit
      contentViewController  -> The view controller to present when the card is tapped
      from                   -> Your current ViewController (self)
      */
-    public func shouldPresent( _ contentViewController: UIViewController?, from superVC: UIViewController?, fullscreen: Bool = false) {
+    public func shouldPresent( _ contentViewController: UIViewController?, from superVC: UIViewController?, fullscreen: Bool = false, canScrollDown: Bool?=true) {
         if let content = contentViewController {
             self.superVC = superVC
             detailVC.addChildViewController(content)
@@ -103,6 +103,7 @@ import UIKit
             detailVC.card = self
             detailVC.delegate = self.delegate
             detailVC.isFullscreen = fullscreen
+            detailVC.canScrollDown = canScrollDown
         }
     }
     /**

@@ -17,6 +17,7 @@ internal class DetailViewController: UIViewController {
     var card: Card!
     var delegate: CardDelegate?
     var isFullscreen = false
+    var canScrollDown = true
     
     fileprivate var xButton = XButton()
     
@@ -171,6 +172,10 @@ extension DetailViewController: UIScrollViewDelegate {
         if (y<0  || currentOrigin > origin) {
             scrollView.frame.origin.y -= y/2
             
+            scrollView.contentOffset.y = 0
+        }
+        
+        if canScrollDown && y>0 {
             scrollView.contentOffset.y = 0
         }
         
