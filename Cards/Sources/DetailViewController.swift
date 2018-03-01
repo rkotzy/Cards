@@ -175,7 +175,7 @@ extension DetailViewController: UIScrollViewDelegate {
             scrollView.contentOffset.y = 0
         }
         
-        if canScrollDown && y>0 {
+        if !canScrollDown && y>0 {
             scrollView.contentOffset.y = 0
         }
         
